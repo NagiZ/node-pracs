@@ -1,0 +1,16 @@
+http.request:
+request.rawHeaders: 获取未格式化的源请求头，数组形式存储；
+request.headers: 获取请求头，以键-值对对象的形式存储；
+
+ipaddr.js: 
+var ipaddr = require('ipaddr.js');//需要先添加依赖
+
+Global Methods:
+ipaddr.isValid ==> 返回true，如果ip地址不是合法的IPv4或者IPv6地址，不会返回其他值。
+
+ipaddr.parse ==> 返回一个表示IP地址的对象/不会自动将IP映射的IPv6地址转化为IPv4对应的地址
+
+ipaddr.process ==> 与ipaddr.parse类似，但是在返回值之前自动将IP映射的IPv6地址转化为IPv4对应的地址 
+
+var ip = '::ffff:127.0.0.1';
+ipaddr.process(ip);   //[127, 0, 0, 1]

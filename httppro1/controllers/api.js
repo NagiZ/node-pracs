@@ -5,7 +5,7 @@ module.exports = {
     'GET /': async (ctx, next)=>{
         var ip = md.getIpAddr(ctx.req);
         console.log(ip);
-        ip = ipaddr.process(ip).octets.join('.');
+        ip = ipaddr.process(ip);
         var header = md.headerObj(ctx.req.headers);
         var items = Object.assign({}, {ip: ip}, header);
         console.log(header);
