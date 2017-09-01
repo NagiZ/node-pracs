@@ -1,3 +1,12 @@
+
+=====================================================> Ip 获取
+function getIpAddr(res){
+	return res.headers['x-forward-for']||//if reference
+	res.connection.remoteAddress||
+	res.socket.remoteAddress||
+	res.connection.socket.remoteAddress;	
+}
+
 http.request:
 request.rawHeaders: 获取未格式化的源请求头，数组形式存储；
 request.headers: 获取请求头，以键-值对对象的形式存储；
@@ -14,3 +23,7 @@ ipaddr.process ==> 与ipaddr.parse类似，但是在返回值之前自动将IP�
 
 var ip = '::ffff:127.0.0.1';
 ipaddr.process(ip);   //[127, 0, 0, 1]
+
+=====================================================> Timestamp 获取
+typeof NaN: number    //切记
+new Date(): 如果传入的参数无法得到一个合法的日期/time，则返回 Invalid Date；
