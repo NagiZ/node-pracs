@@ -1,10 +1,10 @@
 
 =====================================================> Ip 获取
-function getIpAddr(res){
-	return res.headers['x-forward-for']||//if reference
-	res.connection.remoteAddress||
-	res.socket.remoteAddress||
-	res.connection.socket.remoteAddress;	
+function getIpAddr(req){
+	return req.headers['x-forward-for']||//if reference
+	req.connection.remoteAddress||
+	req.socket.remoteAddress||
+	req.connection.socket.remoteAddress;	
 }
 
 http.request:
